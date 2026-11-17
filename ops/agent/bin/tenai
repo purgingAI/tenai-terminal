@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# TenAI's command for the coding agent: status, branch search and switching inside this session.
+# It only talks to the TenAI server on this machine, with a key that is valid while the current turn runs.
+if [ -z "$TENAI_AGENT_KEY" ]; then echo "tenai: not inside a TenAI turn" >&2; exit 2; fi
+args=$(printf '%s\n' "$@" | /usr/bin/python3 -c 'import json,sys; print(json.dumps([l.rstrip("\n") for l in sys.stdin]))')
+[ $# -eq 0 ] && args='[]'
+/usr/bin/curl -sS --max-time 1200 -X POST -H "x-tenai-agent: $TENAI_AGENT_KEY" -H 'content-type: application/json' \
+  --data "{\"args\":$args}" "${TENAI_AGENT_URL:-http://127.0.0.1:8470}/agent/run"
+echo

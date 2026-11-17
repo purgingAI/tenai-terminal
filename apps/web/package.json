@@ -1,0 +1,4 @@
+{ "name": "@tenai/web", "version": "0.1.0", "type": "module",
+  "scripts": { "build": "bun build src/main.tsx --outdir dist --minify --sourcemap=linked && cp index.html styles.css dist/" },
+  "dependencies": { "react": "^18.3.1", "react-dom": "^18.3.1", "@tenai/wire": "workspace:*" },
+  "devDependencies": { "@types/react-dom": "^18.3.0" } }

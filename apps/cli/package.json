@@ -1,0 +1,21 @@
+{
+  "name": "@tenai/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "openwallet": "src/main.tsx"
+  },
+  "dependencies": {
+    "@tenai/amp": "workspace:*",
+    "@tenai/wire": "workspace:*",
+    "ink": "^5.0.1",
+    "react": "^18.3.1",
+    "react-devtools-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3"
+  },
+  "scripts": {
+    "build": "for t in linux-x64 linux-arm64 darwin-arm64 darwin-x64; do bun build --compile --minify --target=bun-$t src/main.tsx --define \"process.env.OPENWALLET_DEFAULT_SERVER=\\\"${OPENWALLET_PUBLIC_URL:-http://127.0.0.1:8470}\\\"\" --outfile ../../dist/cli/openwallet-$t || exit 1; done && grep -oP 'const VERSION = \"\\K[^\"]+' src/main.tsx > ../../dist/cli/VERSION"
+  }
+}

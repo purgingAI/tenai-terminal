@@ -1,0 +1,72 @@
+{
+ "secret": "sec_golden_test",
+ "cases": [
+  {
+   "env": {
+    "amp": "1",
+    "id": "msg_a1",
+    "thread": "thr_b2",
+    "ts": "2026-10-29T10:00:00Z",
+    "from": "alex",
+    "to": "orchestrator",
+    "type": "REQUEST",
+    "intent": "claim.files",
+    "body": {
+     "text": "claim",
+     "paths": [
+      "a/B.java",
+      "c.ts"
+     ],
+     "n": 3,
+     "ok": true,
+     "none": null
+    }
+   },
+   "canonical": "{\"amp\":\"1\",\"body\":{\"n\":3,\"none\":null,\"ok\":true,\"paths\":[\"a/B.java\",\"c.ts\"],\"text\":\"claim\"},\"from\":\"alex\",\"id\":\"msg_a1\",\"intent\":\"claim.files\",\"thread\":\"thr_b2\",\"to\":\"orchestrator\",\"ts\":\"2026-10-29T10:00:00Z\",\"type\":\"REQUEST\"}",
+   "sig": "8207e5903f80a89d8b08f64ebcd2d7bfbd4d969a2d3420dccbe847602328bc26"
+  },
+  {
+   "env": {
+    "amp": "1",
+    "id": "msg_hi",
+    "thread": "thr_hi",
+    "ts": "2026-10-29T10:00:01Z",
+    "from": "jordan",
+    "to": "broadcast",
+    "type": "EVENT",
+    "intent": "chat",
+    "body": {
+     "text": "नमस्ते भाई 🙂 fix the bug",
+     "z": {
+      "b": 1,
+      "a": [
+       {
+        "y": 2,
+        "x": "é"
+       }
+      ]
+     }
+    }
+   },
+   "canonical": "{\"amp\":\"1\",\"body\":{\"text\":\"\\u0928\\u092e\\u0938\\u094d\\u0924\\u0947 \\u092d\\u093e\\u0908 \\ud83d\\ude42 fix the bug\",\"z\":{\"a\":[{\"x\":\"\\u00e9\",\"y\":2}],\"b\":1}},\"from\":\"jordan\",\"id\":\"msg_hi\",\"intent\":\"chat\",\"thread\":\"thr_hi\",\"to\":\"broadcast\",\"ts\":\"2026-10-29T10:00:01Z\",\"type\":\"EVENT\"}",
+   "sig": "e0c045515986173a4b794f2676ecb221ea4101b95e439af44fd048e5da054458"
+  },
+  {
+   "env": {
+    "amp": "1",
+    "id": "msg_q",
+    "thread": "thr_q",
+    "ts": "2026-10-29T10:00:02Z",
+    "from": "a",
+    "to": "b",
+    "type": "RESPONSE",
+    "intent": "chat",
+    "body": {
+     "text": "quotes \" and \\ backslash\nnewline\ttab </script>"
+    }
+   },
+   "canonical": "{\"amp\":\"1\",\"body\":{\"text\":\"quotes \\\" and \\\\ backslash\\nnewline\\ttab </script>\"},\"from\":\"a\",\"id\":\"msg_q\",\"intent\":\"chat\",\"thread\":\"thr_q\",\"to\":\"b\",\"ts\":\"2026-10-29T10:00:02Z\",\"type\":\"RESPONSE\"}",
+   "sig": "7c0bde795758aab7e2420734555841bdccf7d72a8bc716cd42322617e1db70cf"
+  }
+ ]
+}

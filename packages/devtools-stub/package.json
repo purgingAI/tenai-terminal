@@ -1,0 +1,2 @@
+{ "name": "react-devtools-core", "version": "0.0.0-tenai-stub", "private": true, "type": "module", "main": "index.js",
+  "description": "No-op stand-in so ink's optional devtools import resolves inside the compiled openwallet binary." }

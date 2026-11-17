@@ -1,0 +1,2 @@
+# /etc/sudoers.d/tenai (0440): the server may start ONLY the claude binary as tenai-agent, passing env.
+tenai ALL=(tenai-agent) NOPASSWD:SETENV: /srv/tenai/bin/claude

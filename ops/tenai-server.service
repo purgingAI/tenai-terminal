@@ -1,0 +1,26 @@
+[Unit]
+Description=TenAI / OpenWallet Terminal server
+After=network-online.target tenai-intent.service
+Wants=tenai-intent.service
+
+[Service]
+User=tenai
+Group=tenai
+UMask=0002
+EnvironmentFile=/srv/tenai/etc/tenai.env
+WorkingDirectory=/srv/tenai/app
+ExecStart=/srv/tenai/bin/bun run apps/server/src/main.ts
+Restart=on-failure
+RestartSec=3
+# Shared box: keep TenAI inside /srv/tenai and away from everyone's home directories.
+ProtectHome=yes
+ProtectSystem=strict
+ReadWritePaths=/srv/tenai/data /srv/tenai/repos
+PrivateTmp=yes
+CPUQuota=300%
+MemoryMax=6G
+# sudo -u tenai-agent needs setuid, so NoNewPrivileges must stay off for this unit; the agent itself is
+# confined by the PreToolUse hook + tool allowlist and runs as a user with no secrets/SSH/DB access.
+
+[Install]
+WantedBy=multi-user.target

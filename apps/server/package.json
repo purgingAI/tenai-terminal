@@ -1,0 +1,2 @@
+{ "name": "@tenai/server", "version": "0.1.0", "type": "module", "main": "src/main.ts",
+  "dependencies": { "@tenai/amp": "workspace:*", "@tenai/wire": "workspace:*", "@tenai/providers": "workspace:*", "zod": "^3.23.8", "nodemailer": "^6.9.14" } }
